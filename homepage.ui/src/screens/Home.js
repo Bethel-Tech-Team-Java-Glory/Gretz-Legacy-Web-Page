@@ -1,16 +1,38 @@
 import React from 'react';
-import Header from '../components/Header';
+import {connect} from 'react-redux';
 import axios from 'axios';
 
 class Home extends React.Component {
+    state = {}
+    
+    componentDidMount() {
+        axios.get('').then((res) => {
+            this.setState({
+                title: res.data.title,
+                description: res.data.description
+            })
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+
     render() {
         return (
             <div>
-                <Header />
-                <p>This is the home page</p>
+                <h1>{this.state.title}</h1>
+                <p>{this.state.description}</p>
             </div>
         );
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        title: state.title,
+        description: state.description
+    }
+}
+
+
+export default connect(mapStateToProps)(Home);

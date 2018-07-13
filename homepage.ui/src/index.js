@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route, NavLink, HashRouter } from 'react-router-dom';
 import { Home } from './screens';
 import './index.css';
 
@@ -10,11 +10,20 @@ import reducer from './reducers/reducer';
 
 const Index = ({store}) => (
     <Provider store={store}>
-        <Router>
+        <HashRouter>
             <div>
-                <Route exact path="/" component={Home} />
+                <h1>Gretz Legacy Cattle Co.</h1>
+                <ul className="header">
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/about">About</NavLink></li>
+                    <li><NavLink to="/contact">Contact</NavLink></li>
+                </ul>
+                <div className="content">
+                    <Route exact path="/" component={Home} />
+                </div>
+                
             </div>
-        </Router>
+        </HashRouter>
     </Provider>
 );
 
