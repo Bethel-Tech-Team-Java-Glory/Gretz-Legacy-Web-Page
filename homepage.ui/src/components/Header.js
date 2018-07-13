@@ -5,4 +5,6 @@ const Header = ({ title }) => (
         <h1>{title}</h1>
         <a href="/">Home</a>
     </div>
-)
+);
+
+export default Header;

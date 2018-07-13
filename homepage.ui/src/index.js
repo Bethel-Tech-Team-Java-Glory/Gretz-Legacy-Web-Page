@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Home } from './screens';
 import './index.css';
 
-import { createStore}  from 'redux';
+import { createStore }  from 'redux';
 import { Provider } from 'react-redux'
 import reducer from './reducers/reducer';
 
@@ -19,6 +19,6 @@ const Index = ({store}) => (
 );
 
 ReactDOM.render(
-    <Index store={createrStore(reducer)} />, 
+    <Index store={createStore(reducer)} />, 
     document.getElementById('root')
 );
