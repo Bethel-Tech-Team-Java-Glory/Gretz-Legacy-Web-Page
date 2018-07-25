@@ -16,7 +16,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name="Customers")
+@Table(schema = "Customers")
 @EntityListeners(AuditingEntityListener.class)
 
 
