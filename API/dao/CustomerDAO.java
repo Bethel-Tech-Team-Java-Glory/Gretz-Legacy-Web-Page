@@ -22,7 +22,7 @@ public class CustomerDAO {
 	
 	/*Search all customers*/
 	public List<Customer> findAll() {
-		return customerRepository.findAll();
+		return (List<Customer>) customerRepository.findAll();
 	}
 	
 	/*Get a customer by Id*/

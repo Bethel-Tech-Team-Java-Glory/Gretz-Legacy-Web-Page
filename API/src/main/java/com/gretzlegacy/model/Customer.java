@@ -10,13 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
-
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(schema = "Customers")
+@Table(name = "customers")
 @EntityListeners(AuditingEntityListener.class)
 
 
@@ -27,13 +25,17 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	
-	private Long id;
+	private Integer id;
+	private String firstName;
+	private String lastName;
+	private Integer phoneNumber;
+	private String email;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -53,11 +55,11 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	public String getPhoneNumber() {
+	public Integer getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
+	public void setPhoneNumber(Integer phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -77,19 +79,6 @@ public class Customer {
 		this.createdAt = createdAt;
 	}
 
-	@NotBlank
-	private String firstName;
-	
-	@NotBlank
-	private String lastName;
-	
-	@NotBlank
-	private String phoneNumber;
-	
-	@NotBlank
-	private String email;
-	
-	@NotBlank
 	@Temporal(TemporalType.TIMESTAMP)
 	@LastModifiedDate
 	private Date createdAt;
